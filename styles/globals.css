@@ -1,0 +1,40 @@
+/* agency-showcase/styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: Add base body styling or custom font imports here */
+body {
+  @apply bg-slate-900 text-slate-100; /* Default dark background and light text */
+  font-family: 'Inter', sans-serif; /* Ensure you're loading Inter or your chosen font */
+}
+
+/* Custom scrollbar styles (already in pages/index.js but can be global) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  @apply bg-slate-700; /* Tailwind class for background */
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-sky-500; /* Tailwind class for thumb */
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-sky-600; /* Tailwind class for thumb hover */
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: theme('colors.sky.500') theme('colors.slate.700'); /* Using Tailwind theme function */
+}
+
+/* Ensure masonry columns don't break content weirdly on very small screens if needed */
+@media (max-width: 640px) { /* sm breakpoint */
+  .columns-1 {
+    column-fill: auto; /* Or balance, experiment what looks best for single column */
+  }
+}
